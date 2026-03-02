@@ -1,0 +1,24 @@
+
+.wy-side-nav-search, .wy-nav-side {
+  background: #2b1b3a;
+}
+
+
+.wy-side-nav-search input[type="text"] {
+  border-color: #6f42c1;
+}
+
+
+a { color: #6f42c1; }
+a:hover { color: #5a32a3; }
+
+
+.wy-menu-vertical li.current > a {
+  border-right: 4px solid #6f42c1;
+}
+
+.wy-menu-vertical p.caption {
+    color: #DBD8E9 !important;   /* 你想要的紫色 */
+    font-weight: 700;
+    letter-spacing: 1px;
+}
