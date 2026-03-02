@@ -13,9 +13,11 @@ The framework consists of two core components:
 2. **Spatial generative module (`spatial/`)** – a Transformer-based multimodal generative model built upon CoxFormer gene embeddings.
 
 By integrating biologically informed gene embeddings with a flexible generative architecture, CoxFormer supports transcriptome-wide inference, region detection, and spatial super-resolution without relying on external single-cell references.
+---
+## Documentation
+For detailed documentation, please visit: https://coxformer.readthedocs.io/en/latest/
 
 ---
-
 ## Framework
 
 <p align="center">
