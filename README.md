@@ -99,7 +99,7 @@ Each benchmark reproduces quantitative evaluations and visualization outputs.
 
 ---
 
-## Datasets and Baseline
+## Datasets
 
 - \- `Dataset/` – processed datasets used for gene-level, cell-level, and spatial-level benchmarks. Original data sources include:
 
