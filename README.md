@@ -86,7 +86,7 @@ CoxFormer is systematically evaluated through comparative benchmarking at gene, 
 - Methylation classification benchmark  
 - Transcription factor range benchmark  
 
-### Cell-level benchmark 
+### Cell-level benchmarks 
 
 - Diffuse Large B-cell Lymphoma FFPE (DLBL) cell type annotation
 - Lung Cancer FFPE (LC) cell type annotation
