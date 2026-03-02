@@ -16,13 +16,13 @@ By integrating biologically informed gene embeddings with a flexible generative 
 
 ---
 
-## Architecture
+## Framework
 
 <p align="center">
-  <img src="docs/Figure_1.pdf" width="85%">
+  <img src="docs/Figure_1.png" width="85%">
 </p>
 
-**Figure 1 | Overview of the CoxFormer framework.**  
+**Overview of the CoxFormer framework.**  
 CoxFormer first learns transcriptome-wide gene embeddings from co-expression signals. These embeddings are then integrated into a multimodal Transformer-based generative framework for spatial inference, enabling gene- cell- and tissue-level downstream tasks.
 
 ---
