@@ -19,7 +19,7 @@ By integrating biologically informed gene embeddings with a flexible generative 
 ## Framework
 
 <p align="center">
-  <img src="docs/Figure_1.png" width="85%">
+  <img src="docs/Figure_1.png" width="100%">
 </p>
 
 **Overview of the CoxFormer framework.**  
