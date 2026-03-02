@@ -139,8 +139,6 @@ Each benchmark reproduces quantitative evaluations and visualization outputs.
   \- **Illumina NextSeq 500 scRNA-seq (normal human liver)**: 
   GEO accession GSM7290760 
   https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM7290760
-- `Embeddings/` – pretrained gene representations from CoxFormer and multiple external foundation models and baseline methods
-- `External/` – implementations of external baseline methods for spatial transcriptomics benchmarking (scVI, SpaGE, SpaOTsc, stPlus, Tangram)  
 
 ---
 
