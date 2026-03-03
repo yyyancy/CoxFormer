@@ -21,11 +21,11 @@ def build_argparser():
     # ===== Path configs =====
     p.add_argument("--base_path", type=str, default="./Dataset/",
                    help="Path to dataset folder")
-    p.add_argument("--embedding_path", type=str, default="/home/wangshu/scratch/COPT/Embeddings/",
+    p.add_argument("--embedding_path", type=str, default="./Embeddings/",
                    help="Path to gene embedding folder containing <method>.pkl")
-    p.add_argument("--datasets", nargs="+", default=["Dataset20", "Dataset21", "Dataset22"],
+    p.add_argument("--datasets", nargs="+", default=["HBC1"],
                    help="Dataset names to run")
-    p.add_argument("--task", type=str, choices=["ScRNA", "HyperImpute", "ATAC", "Cancer"], default="ScRNA")
+    p.add_argument("--task", type=str, choices=["Gene_expression_prediction", "Super_resolution_enhancement", "Gene_activity_score_prediction", "Pathological_region_detection"], default="Gene_expression_prediction")
     p.add_argument("--pattern", type=str, choices=["spot", "pixel_sim", "pixel_real"], default="spot")
     p.add_argument("--modality", nargs="+", default=["location", "image", "combine", "none"],
                    help="Modality names to run")
@@ -146,9 +146,9 @@ def run(args):
 
 def run_impute(
     base_path="./Dataset/",
-    embedding_path="/home/wangshu/scratch/COPT/Embeddings/",
+    embedding_path="./Embeddings/",
     datasets=None,
-    task="ScRNA",
+    task="Gene_expression_prediction",
     pattern="spot",
     modality=None,
     result_root="Result",
@@ -166,7 +166,7 @@ def run_impute(
 
     args.base_path = base_path
     args.embedding_path = embedding_path
-    args.datasets = datasets if datasets is not None else ["Dataset20", "Dataset21", "Dataset22"]
+    args.datasets = datasets if datasets is not None else ["HBC1"]
     args.task = task
     args.pattern = pattern
     args.modality = modality if modality is not None else ["location", "image", "combine", "none"]

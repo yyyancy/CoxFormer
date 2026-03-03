@@ -2,10 +2,10 @@ import pickle
 import numpy as np
 import torch
 from torch_geometric.data import Data
+from torch.utils.data import Dataset
 from tqdm import tqdm
 import psutil
 import os
-
 
 class CoxformerDataset:
     """
@@ -241,3 +241,15 @@ def split_labeled_edges_indices(data):
     test_indices = train_indices
     
     return train_indices, val_indices, test_indices
+
+
+# Now create the dataset and dataloader
+class CoexpressDataset(Dataset):
+    def __init__(self, embeddings):
+        self.embeddings = embeddings
+
+    def __len__(self):
+        return len(self.embeddings)
+
+    def __getitem__(self, idx):
+        return self.embeddings[idx]

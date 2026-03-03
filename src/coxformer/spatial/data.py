@@ -19,6 +19,7 @@ from torch.utils.data import  TensorDataset
 import scanpy as sc
 import anndata as ad
 
+from .utils import read_txt
 
 def read_spatial_data(Spatial_path):
     Spatial_data = pd.read_table(Spatial_path, sep='\t', header=0, index_col=0)

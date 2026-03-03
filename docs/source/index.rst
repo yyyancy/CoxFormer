@@ -11,7 +11,8 @@ CoxFormer first learns transcriptome-wide gene embeddings from co-expression sig
 .. toctree::
    :maxdepth: 1
    :caption: Tutorials
-
+   
+   Co-expression Completion Tutorial <notebooks/Co-expression_completion_tutorial>
    Celltype Annotation Tutorial <notebooks/Celltype_annotation_tutorial>
    Gene Expression Prediction Tutorial <notebooks/Gene_expression_prediction_tutorial>
    Gene Activity Score Prediction Tutorial <notebooks/Gene_activity_score_prediction_tutorial>
