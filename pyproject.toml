@@ -7,12 +7,13 @@ name = "coxformer"
 version = "0.1.0"
 description = "CoxFormer spatial inference toolkit"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
   "numpy",
   "pandas",
   "scipy",
   "torch",
+  "torch_geometric",
   "anndata",
   "scanpy",
   "tqdm",
@@ -28,3 +29,4 @@ where = ["src"]
 
 [project.scripts]
 coxformer-impute = "coxformer.spatial.cli:main"
+coxformer-embed = "coxformer.embedding.cli:main"
