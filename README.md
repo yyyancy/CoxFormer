@@ -154,3 +154,30 @@ Each benchmark reproduces quantitative evaluations and visualization outputs.
 - Region-aware pathological detection  
 - Spatial super-resolution enhancement  
 - Unified framework across gene, cell, and tissue tasks  
+
+
+---
+
+## Environment Setup
+
+We recommend installing CoxFormer in a clean Python environment (Python ≥ 3.9).  
+After cloning the repository, the required dependencies can be installed in one step.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your_repo/CoxFormer.git
+cd CoxFormer
+```
+
+### 2. Install dependencies
+Install CoxFormer and all required packages using:
+```bash
+pip install -e .
+```
+
+### 3. Verify installation
+After installation, you can verify that the command-line interface works:
+```bash
+coxformer-embed --help
+```
