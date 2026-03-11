@@ -20,7 +20,7 @@ def build_argparser():
     p.add_argument(
         "--embedding_path",
         type=str,
-        default="/home/wangshu/scratch/COPT/Embeddings/",
+        default="CoxFormer/Embeddings/",
         help="Path to embedding folder containing <emb_name>.pkl",
     )
     p.add_argument(
@@ -206,7 +206,7 @@ def run(args):
 
 
 def run_reduce(
-    embedding_path="/home/wangshu/scratch/COPT/Embeddings/",
+    embedding_path="CoxFormer/Embeddings/",
     emb_name="coexpression",
     output_suffix="_rd",
     seq_length=512,
