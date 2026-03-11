@@ -160,7 +160,7 @@ Each benchmark reproduces quantitative evaluations and visualization outputs.
 
 ## Environment Setup
 
-We recommend installing CoxFormer in a clean Python environment (Python ≥ 3.9).  
+We recommend installing CoxFormer in a clean Python environment (Python ≥ 3.10).  
 After cloning the repository, the required dependencies can be installed in one step.
 
 ### 1. Clone the repository
