@@ -5,9 +5,7 @@ import torch
 from tqdm import tqdm
 
 
-def infer_coexpression(data, all_nodes_genes, common_genes, pred_denormalized, 
-                                          coexpression_file, correlation_file, gene_to_idx, 
-                                          target_min, target_max, top_k_edges, save_path):
+def infer_coexpression(data, all_nodes_genes, pred_denormalized, coexpression_file, gene_to_idx, save_path):
     """
     Strategy:
     1. First build complete prediction matrix based on training edges
