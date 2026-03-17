@@ -30,3 +30,4 @@ where = ["src"]
 [project.scripts]
 coxformer-impute = "coxformer.spatial.cli:main"
 coxformer-embed = "coxformer.embedding.cli:main"
+coxformer-complete = "coxformer.embedding.complete:main"
