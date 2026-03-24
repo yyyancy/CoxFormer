@@ -60,6 +60,16 @@ This module supports:
 
 ---
 
+## Embedding
+
+The released CoxFormer embedding file is available at:
+
+**https://github.com/yyyancy/CoxFormer/tree/main/Embeddings/Embeddings/CoxFormer.pkl**
+
+This file provides the pretrained CoxFormer gene embeddings used as universal gene priors for downstream spatial inference and benchmarking.
+
+---
+
 ## Results
 
 The processed result files supporting CoxFormer downstream analyses, quantitative evaluations, and manuscript figure generation are hosted on Hugging Face:
@@ -200,3 +210,21 @@ After installation, you can verify that the command-line interface works:
 ```bash
 coxformer-embed --help
 ```
+
+---
+
+## Citation
+
+If you find CoxFormer useful in your research, please cite:
+
+```bibtex
+@article{liu2026coxformer,
+  author={Liu, Jin and Yang, Yiyang and Liao, Xu and Zhang, Haoyu and Wu, Yida and Sun, Xiaobo and Wang, Yao and Yu, Tianshu},
+  title = {CoxFormer enables spatial omics inference with multimodal generative modeling},
+  year = {2026},
+  date = {2026-03-11},
+  journal = {Research Square},
+  note = {Preprint, Version 1},
+  doi = {10.21203/rs.3.rs-9062650/v1},
+  url = {https://doi.org/10.21203/rs.3.rs-9062650/v1}
+}
