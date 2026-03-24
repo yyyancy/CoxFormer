@@ -60,6 +60,25 @@ This module supports:
 
 ---
 
+## Results
+
+The processed result files supporting CoxFormer downstream analyses, quantitative evaluations, and manuscript figure generation are hosted on Hugging Face:
+
+**https://huggingface.co/datasets/Yiyang817/CoxFormer-results**
+
+This result repository contains the task-specific outputs used to support downstream analysis and paper plotting, including results for:
+
+- gene-level tasks
+- cell-level tasks
+- gene expression prediction
+- gene activity score prediction
+- pathological region detection
+- super-resolution enhancement
+
+These files are intended to provide the processed outputs used for benchmarking, visualization, and figure generation, rather than the raw input datasets themselves.
+
+---
+
 ## Tutorials
 
 Comprehensive tutorials demonstrate how to use CoxFormer for gene-level, cell-level, and tissue-level applications:
