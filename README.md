@@ -218,8 +218,8 @@ coxformer-embed --help
 If you find CoxFormer useful in your research, please cite:
 
 ```bibtex
-@article{liu2026coxformer,
-  author={Liu, Jin and Yang, Yiyang and Liao, Xu and Zhang, Haoyu and Wu, Yida and Sun, Xiaobo and Wang, Yao and Yu, Tianshu},
+@article{yang2026coxformer,
+  author={Yang, Yiyang and Liao, Xu and Zhang, Haoyu and Wu, Yida and Sun, Xiaobo and Wang, Yao and Yu, Tianshu and Liu, Jin},
   title = {CoxFormer enables spatial omics inference with multimodal generative modeling},
   year = {2026},
   date = {2026-03-11},
@@ -228,3 +228,4 @@ If you find CoxFormer useful in your research, please cite:
   doi = {10.21203/rs.3.rs-9062650/v1},
   url = {https://doi.org/10.21203/rs.3.rs-9062650/v1}
 }
+```
