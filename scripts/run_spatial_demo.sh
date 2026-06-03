@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Running CoxFormer spatial imputation demo..."
+echo "Running CoxFormer spatial molecular prediction demo..."
 
 DATASET=HBC1
 
@@ -10,4 +10,4 @@ coxformer-impute \
     --epochs 20 \
     --batch_size 32
 
-echo "Spatial imputation finished."
+echo "Spatial molecular prediction finished."

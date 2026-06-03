@@ -4,12 +4,12 @@ import torch.nn.functional as F
 from torch_geometric.nn import SAGEConv
 
 
-class CoxformerNet(nn.Module):
+class CoxformerGCN(nn.Module):
     """
-    Improved GraphSAGE model with support for edge features (correlation) as input
+    GraphSAGE edge predictor for transcriptome-wide co-expression completion.
     """
     def __init__(self, input_dim, hidden_dims, edge_dim=1, dropout=0.2, use_edge_features=True):
-        super(CoxformerNet, self).__init__()
+        super(CoxformerGCN, self).__init__()
         
         self.num_layers = len(hidden_dims)
         self.use_edge_features = use_edge_features
@@ -84,7 +84,7 @@ class CoxformerNet(nn.Module):
 
 
 
-# Define the autoencoder with efficient attention
+# Define the autoencoder with efficient attention.
 class CoxformerAE(nn.Module):
     def __init__(self, input_dim, hidden_dim=512, seq_length=512, embedding_dim=64, original_input_dim=None):
         super(CoxformerAE, self).__init__()

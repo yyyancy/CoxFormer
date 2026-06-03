@@ -213,7 +213,9 @@ def process_spatial_data(spatial_data, gene_embedding, dataset_idx, paths, Patte
             test_genes  = [g for g in test_list  if g in overlap_genes]
             adata.var["is_train"] = adata.var_names.isin(train_genes)
             adata.var["is_test"]  = adata.var_names.isin(test_genes)
-            np.save(os.path.join(base_path, "genes_overlap.npy"), np.array(overlap_genes, dtype=object))
+            overlap_path = os.path.join(base_path, "genes_overlap.npy")
+            if not os.path.exists(overlap_path):
+                np.save(overlap_path, np.array(overlap_genes, dtype=object))
     
         # --- Case B: 无 train/test 文件，但有 genes_txt → 随机 8:2 人为划分并保存 ---
         elif os.path.exists(paths["genes_txt"]):

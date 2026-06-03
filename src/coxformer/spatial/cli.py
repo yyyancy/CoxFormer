@@ -8,7 +8,7 @@ from .data import (
     read_spatial_data, read_gene_embedding, read_condition,
     process_spatial_data, process_index, train_data_loader, process_embedding,
 )
-from .train import train_models
+from .train import CoxformerSpatialTrainer
 from .infer import (
     predict_gene_expression, predict_spot_expression,
     predict_pixel_expression, predict_cell_expression,
@@ -98,7 +98,7 @@ def run(args):
                 )
 
                 # train
-                regressor, test_loader = train_models(
+                regressor, test_loader = CoxformerSpatialTrainer(
                     X_embs, train_dataset, test_dataset,
                     condition_dim, condition_array,
                     hidden_dim=args.hidden_dim,

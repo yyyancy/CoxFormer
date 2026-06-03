@@ -5,9 +5,9 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from tqdm import tqdm
 
 
-class CoxformerTrainer:
+class CoxformerGCNTrainer:
     """
-    Enhanced sampling trainer with support for partially labeled edges
+    Neighbor-sampling trainer for partially observed co-expression graph completion.
     """
     def __init__(self, model, device, num_neighbors=[15, 10], batch_size=256):
         self.model = model.to(device)

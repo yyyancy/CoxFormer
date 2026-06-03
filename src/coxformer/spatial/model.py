@@ -96,7 +96,7 @@ class TriEncoder(nn.Module):
         return self.regressor(combine)
 
 
-class TransformerDecoderWithSpatialQuery(nn.Module):
+class CoxformerSpatial(nn.Module):
     def __init__(self, input_dim, condition_dim, hidden_dim=256, 
                   nhead=8, num_layers=1, dim_feedforward=1024, dropout=0.1, Modality='location', Pattern='spot'):
         super().__init__()
@@ -188,5 +188,3 @@ class TransformerDecoderWithSpatialQuery(nn.Module):
         out = self.transformer_decoder(tgt=query, memory=kv, tgt_mask=None)  # (B, N, hidden_dim)        
         reg = self.output_proj(out).squeeze(-1)  # (B, N)  
         return reg    
-
-

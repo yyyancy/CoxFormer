@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Running CoxFormer embedding reduction demo..."
+echo "Running CoxFormer co-expression autoencoding demo..."
 
 EMB_NAME=coexpression
 
@@ -9,4 +9,4 @@ coxformer-embed \
     --epochs 20 \
     --batch_size 32
 
-echo "Embedding reduction finished."
+echo "Co-expression autoencoding finished."

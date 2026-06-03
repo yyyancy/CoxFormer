@@ -13,10 +13,14 @@ from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt     
 
 # ====== Model ======
-from .model import TransformerDecoderWithSpatialQuery, pad_embeddings_to_divisible, weighted_huber_loss
+from .model import (
+    CoxformerSpatial,
+    pad_embeddings_to_divisible,
+    weighted_huber_loss,
+)
 
 
-def train_models(
+def CoxformerSpatialTrainer(
     X_emb,
     train_dataset,
     test_dataset,
@@ -35,7 +39,7 @@ def train_models(
     save_dir="Result",
 ):
     """
-    Train TransformerDecoderWithSpatialQuery with EMA-smoothed validation early stopping.
+    Train CoxformerSpatial with EMA-smoothed early stopping.
     Automatically sets patience/warmup based on num_epochs.
     If pattern != 'spot', validation and early stopping are skipped (same as original).
     """
@@ -57,7 +61,7 @@ def train_models(
     input_dim = int(x_embeddings.shape[1])
     print(f"input_dim:{input_dim}, condition_dim:{condition_dim}, hidden_dim:{hidden_dim}, pad_dim:{pad_dim}")
 
-    model = TransformerDecoderWithSpatialQuery(
+    model = CoxformerSpatial(
         input_dim=input_dim,
         condition_dim=condition_dim,
         hidden_dim=hidden_dim,
@@ -67,7 +71,7 @@ def train_models(
 
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1e-4)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-        optimizer, T_max=num_epochs, eta_min=1e-6, verbose=False
+        optimizer, T_max=num_epochs, eta_min=1e-6
     )
 
     # ==== Loss parameters ====
@@ -190,6 +194,6 @@ def train_models(
     plt.grid(alpha=0.3)
     plt.tight_layout()
     plt.savefig(save_dir + f"/{Method}_loss_{pattern}_{modality}.pdf",dpi=300)
-    plt.show()
+    plt.close()
 
     return model, test_loader

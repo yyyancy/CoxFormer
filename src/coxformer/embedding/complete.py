@@ -13,12 +13,15 @@ from torch.optim.lr_scheduler import CosineAnnealingLR
 import warnings
 from tensorboardX import SummaryWriter
 
-from coxformer.embedding.data import CoxformerDataset, split_labeled_edges_indices
-from coxformer.embedding.model import CoxformerNet
-from coxformer.embedding.train import CoxformerTrainer
-from coxformer.embedding.infer import infer_coexpression, print_analysis
+from coxformer.embedding.data import CoxformerDataset, split_observed_coexpression_edges
+from coxformer.embedding.model import CoxformerGCN
+from coxformer.embedding.train import CoxformerGCNTrainer
+from coxformer.embedding.infer import build_completed_coexpression_matrix, print_coexpression_completion_report
 
-def main(args):
+def main(args=None):
+    if args is None:
+        args = build_argparser()
+
     for subdir in [f'out/{args.project_name}', f'runs/{args.project_name}']:
         if not os.path.exists(subdir):
             os.makedirs(subdir, exist_ok=True)
@@ -36,7 +39,7 @@ def main(args):
 
     data, gene_to_idx, all_nodes_genes, common_genes, target_min, target_max, edge_corr_min, edge_corr_max = dataset.create_enhanced_graph_data(args.top_k_edges)
 
-    train_indices, val_indices, test_indices = split_labeled_edges_indices(data)
+    train_indices, val_indices, test_indices = split_observed_coexpression_edges(data)
     data = data.to(device)
 
     print('Data split summary:')
@@ -56,10 +59,10 @@ def main(args):
     print(f'Edge feature dim: {edge_dim}')
     print(f'Hidden dims: {hidden_dims}')
 
-    model = CoxformerNet(input_dim, hidden_dims, edge_dim=edge_dim, dropout=args.dropout, use_edge_features=True)
+    model = CoxformerGCN(input_dim, hidden_dims, edge_dim=edge_dim, dropout=args.dropout, use_edge_features=True)
     model = model.to(device)
 
-    trainer = CoxformerTrainer(model, device, num_neighbors=args.num_neighbors, batch_size=args.batch_size)
+    trainer = CoxformerGCNTrainer(model, device, num_neighbors=args.num_neighbors, batch_size=args.batch_size)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     scheduler = CosineAnnealingLR(optimizer, T_max=args.num_epochs, eta_min=1e-6)
@@ -292,7 +295,7 @@ def main(args):
 
     save_start_time = time.time()
 
-    result_df, save_stats = infer_coexpression(data, all_nodes_genes, pred_denormalized, args.coexpression_file, gene_to_idx, save_path=f'out/{args.project_name}/predicted_coexpress.pkl')
+    result_df, save_stats = build_completed_coexpression_matrix(data, all_nodes_genes, pred_denormalized, args.coexpression_file, gene_to_idx, save_path=f'out/{args.project_name}/predicted_coexpress.pkl')
     save_end_time = time.time()
     save_duration = save_end_time - save_start_time
 
@@ -304,7 +307,7 @@ def main(args):
     print(f'Full results saved to: out/{args.project_name}/predicted_coexpress.pkl')
 
     print("Analysis Report:")
-    print_analysis(save_stats)
+    print_coexpression_completion_report(save_stats)
 
     total_genes = save_stats['total_genes']
     orig_edges = save_stats['original_edges']
@@ -319,7 +322,7 @@ def main(args):
 
 
 def build_argparser():
-    parser = argparse.ArgumentParser(description="Train Coxformer for gene co-expression prediction.")
+    parser = argparse.ArgumentParser(description="Train a co-expression graph completion model.")
     
     parser.add_argument('--project_name', type=str, default='top50_full_1e-3_L2', help='Project name for output folders')
     parser.add_argument('--top_k_edges', type=int, default=50, help='Number of top-k edges to keep per node')

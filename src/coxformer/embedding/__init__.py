@@ -1,12 +1,21 @@
 __version__ = "0.1.0"
 
-from .data import CoxformerDataset, split_labeled_edges_indices
-from .model import CoxformerNet
-from .train import CoxformerTrainer
+from .data import (
+    CoxformerDataset,
+    CoexpressDataset,
+    split_observed_coexpression_edges,
+)
+from .model import (
+    CoxformerGCN,
+    CoxformerAE,
+)
+from .train import CoxformerGCNTrainer
 
 __all__ = [
     "CoxformerDataset",
-    "CoxformerNet", 
-    "CoxformerTrainer",
-    "split_labeled_edges_indices",
+    "CoxformerAE",
+    "CoxformerGCN",
+    "CoxformerGCNTrainer",
+    "CoexpressDataset",
+    "split_observed_coexpression_edges",
 ]

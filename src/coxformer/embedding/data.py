@@ -9,7 +9,7 @@ import os
 
 class CoxformerDataset:
     """
-    Enhanced large-scale graph data processing class, supporting training with all correlation edges
+    Build the graph used for transcriptome-wide co-expression completion.
     """
     def __init__(self, coexpression_file, correlation_file, embedding_file):
         self.coexpression_file = coexpression_file
@@ -214,9 +214,9 @@ class CoxformerDataset:
 
 
 
-def split_labeled_edges_indices(data):
+def split_observed_coexpression_edges(data):
     """
-    Split labeled edge indices into train, validation, and test sets
+    Split observed co-expression edge indices into train, validation, and test sets.
     
     Args:
         data: PyG Data object
