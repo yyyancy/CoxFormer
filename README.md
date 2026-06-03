@@ -39,11 +39,14 @@ Implements the training pipeline for CoxFormer gene embeddings.
 
 This module provides:
 
-- Construction of gene–gene relationships  
-- Representation learning for transcriptome-wide embeddings  
+- Transcriptome-wide co-expression graph completion
+- Transformer autoencoding for co-expression profile compression
 - Export of pretrained CoxFormer gene embeddings  
 
 The resulting embeddings serve as universal priors for downstream tasks.
+
+Key public APIs include `CoxformerDataset`, `CoxformerGCN`,
+`CoxformerGCNTrainer`, and `CoxformerAE`.
 
 ---
 
@@ -58,13 +61,15 @@ This module supports:
 - Pathological region detection  
 - Super-resolution enhancement  
 
+Key public APIs include `CoxformerSpatial` and `CoxformerSpatialTrainer`.
+
 ---
 
 ## Embedding
 
 The released CoxFormer embedding file is available at:
 
-**https://github.com/yyyancy/CoxFormer/tree/main/Embeddings/Embeddings/CoxFormer.pkl**
+**https://github.com/yyyancy/CoxFormer/tree/main/Embeddings/CoxFormer.pkl**
 
 This file provides the pretrained CoxFormer gene embeddings used as universal gene priors for downstream spatial inference and benchmarking.
 
