@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "CoxFormer enables spatial omics inference with multimodal generative modeling"
+version: 1.0.0
+type: software
+authors:
+  - given-names: Yiyang
+    family-names: Yang
+repository-code: "https://github.com/yyyancy/CoxFormer"
+date-released: 2026-07-19
